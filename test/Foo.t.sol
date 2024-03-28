@@ -29,6 +29,18 @@ contract FooTest is PRBTest, StdCheats {
     assertEq(foo.id(x), x, "value mismatch");
   }
 
+  /// @dev Basic test. Run it with `forge test -vvv` to see the console log.
+  function test_zero_input() external {
+    uint256 x = 0;
+    assertEq(foo.id(x), x, "value mismatch");
+  }
+
+  /// @dev Basic test. Run it with `forge test -vvv` to see the console log.
+  function test_negative_zero_input() external {
+    uint256 x = -0;
+    assertEq(foo.id(x), x, "value mismatch");
+  }
+
   /// @dev Fuzz test that provides random values for an unsigned integer, but which rejects zero as an input.
   /// If you need more sophisticated input validation, you should use the `bound` utility instead.
   /// See https://twitter.com/PaulRBerg/status/1622558791685242880
