@@ -110,6 +110,7 @@ Build the contracts:
 ```sh
 $ forge build
 ```
+(If that does not show that the contracts are compiled/does not work, you probably have the wrong forge, a snap package for Ubuntu installed. See [solution](https://ethereum.stackexchange.com/questions/139754/when-i-type-forge-init-force-forge-init))
 
 ### Clean
 
@@ -137,14 +138,26 @@ $ forge coverage
 
 ### Deploy
 
-Deploy to Anvil:
+Deploy to Anvil, first open another terminal, give it your custom `MNEMONIC` as an environment variable, and run anvil in it:
+```sh
+# This is a random generated hash with 0 test eth, and the Ethereum test network `ethereum-sepolia` [faucet](https://www.alchemy.com/faucets/ethereum-sepolia) keeps saying: "complete captcha", without showing the captcha (Add block was disabled).
+```sh
+export MNEMONIC="pepper habit setup conduct material wagon captain liquid ill confirm cube easy iron tackle timber"
+```
+If you can get the faucet to give you test-ETH, you can use your own MNEMONIC (see [BIP39 mnemonic](https://iancoleman.io/bip39/).). Luckily foundry provides a standard test wallet with 1000 ETH in it, which can be used with:
+```sh
+export MNEMONIC="test test test test test test test test test test test junk"
+```
 
+
+
+
+While Anvil runs in the background on another terminal, open a new terminal and run:
 ```sh
 $ forge script script/Deploy.s.sol --broadcast --fork-url http://localhost:8545
 ```
+By default, this deploys to the HardHat Chain 31337.
 
-For this script to work, you need to have a `MNEMONIC` environment variable set to a valid
-[BIP39 mnemonic](https://iancoleman.io/bip39/).
 
 For instructions on how to deploy to a testnet or mainnet, check out the
 [Solidity Scripting](https://book.getfoundry.sh/tutorials/solidity-scripting.html) tutorial.
