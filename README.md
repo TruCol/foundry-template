@@ -1,14 +1,5 @@
 # Foundry Template [![Open in Gitpod][gitpod-badge]][gitpod] [![Github Actions][gha-badge]][gha] [![Foundry][foundry-badge]][foundry] [![License: MIT][license-badge]][license]
 
-[gitpod]: https://gitpod.io/#https://github.com/TruCol/foundry-template
-[gitpod-badge]: https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-FFB45B?logo=gitpod
-[gha]: https://github.com/TruCol/foundry-template/actions
-[gha-badge]: https://github.com/TruCol/foundry-template/actions/workflows/ci.yml/badge.svg
-[foundry]: https://getfoundry.sh/
-[foundry-badge]: https://img.shields.io/badge/Built%20with-Foundry-FFDB1C.svg
-[license]: https://opensource.org/licenses/MIT
-[license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
-
 A Foundry-based template for developing Solidity smart contracts, with sensible defaults.
 
 ## What's Inside
@@ -85,7 +76,7 @@ This is how to install dependencies:
 
 1. Install the dependency using your preferred package manager, e.g. `bun install dependency-name`
    - Use this syntax to install from GitHub: `bun install github:username/repo-name`
-2. Add a remapping for the dependency in [remappings.txt](./remappings.txt), e.g.
+1. Add a remapping for the dependency in [remappings.txt](./remappings.txt), e.g.
    `dependency-name=node_modules/dependency-name`
 
 Note that OpenZeppelin Contracts is pre-installed, so you can follow that as an example.
@@ -110,6 +101,7 @@ Build the contracts:
 ```sh
 $ forge build
 ```
+
 (If that does not show that the contracts are compiled/does not work, you probably have the wrong forge, a snap package for Ubuntu installed. See [solution](https://ethereum.stackexchange.com/questions/139754/when-i-type-forge-init-force-forge-init))
 
 ### Clean
@@ -139,25 +131,26 @@ $ forge coverage
 ### Deploy
 
 Deploy to Anvil, first open another terminal, give it your custom `MNEMONIC` as an environment variable, and run anvil in it:
-```sh
+
+````sh
 # This is a random generated hash with 0 test eth, and the Ethereum test network `ethereum-sepolia` [faucet](https://www.alchemy.com/faucets/ethereum-sepolia) keeps saying: "complete captcha", without showing the captcha (Add block was disabled).
 ```sh
 export MNEMONIC="pepper habit setup conduct material wagon captain liquid ill confirm cube easy iron tackle timber"
-```
+````
+
 If you can get the faucet to give you test-ETH, you can use your own MNEMONIC (see [BIP39 mnemonic](https://iancoleman.io/bip39/).). Luckily foundry provides a standard test wallet with 1000 ETH in it, which can be used with:
+
 ```sh
 export MNEMONIC="test test test test test test test test test test test junk"
 ```
 
-
-
-
 While Anvil runs in the background on another terminal, open a new terminal and run:
+
 ```sh
 $ forge script script/Deploy.s.sol --broadcast --fork-url http://localhost:8545
 ```
-By default, this deploys to the HardHat Chain 31337.
 
+By default, this deploys to the HardHat Chain 31337.
 
 For instructions on how to deploy to a testnet or mainnet, check out the
 [Solidity Scripting](https://book.getfoundry.sh/tutorials/solidity-scripting.html) tutorial.
@@ -217,3 +210,12 @@ $ bun run test:coverage:report
 ## License
 
 This project is licensed under MIT.
+
+[foundry]: https://getfoundry.sh/
+[foundry-badge]: https://img.shields.io/badge/Built%20with-Foundry-FFDB1C.svg
+[gha]: https://github.com/TruCol/foundry-template/actions
+[gha-badge]: https://github.com/TruCol/foundry-template/actions/workflows/ci.yml/badge.svg
+[gitpod]: https://gitpod.io/#https://github.com/TruCol/foundry-template
+[gitpod-badge]: https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-FFB45B?logo=gitpod
+[license]: https://opensource.org/licenses/MIT
+[license-badge]: https://img.shields.io/badge/License-MIT-blue.svg
