@@ -14,10 +14,11 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 
+bun.lockb
+package.json
+
+
 # broadcasts
 !broadcast
 broadcast/*
 broadcast/*/31337/
-
-bun.lockb
-package.json
