@@ -1,7 +1,4 @@
 {
-  "name": "@TruCol/foundry-template",
-  "description": "",
-  "version": "1.0.0",
   "author": {
     "name": "TruCol",
     "url": "https://github.com/TruCol"
@@ -9,6 +6,7 @@
   "dependencies": {
     "@openzeppelin/contracts": "^5.0.1"
   },
+  "description": "",
   "devDependencies": {
     "@prb/test": "^0.6.4",
     "forge-std": "github:foundry-rs/forge-std#v1.7.5",
@@ -24,10 +22,11 @@
     "solidity",
     "template"
   ],
+  "name": "@TruCol/foundry-template",
   "private": true,
   "scripts": {
-    "clean": "rm -rf cache out",
     "build": "forge build",
+    "clean": "rm -rf cache out",
     "lint": "bun run lint:sol && bun run prettier:check",
     "lint:sol": "forge fmt --check && bun solhint {script,src,test}/**/*.sol",
     "prettier:check": "prettier --check \"**/*.{json,md,yml}\" --ignore-path \".prettierignore\"",
@@ -35,5 +34,6 @@
     "test": "forge test",
     "test:coverage": "forge coverage",
     "test:coverage:report": "forge coverage --report lcov && genhtml lcov.info --branch-coverage --output-dir coverage"
-  }
+  },
+  "version": "1.0.0"
 }
