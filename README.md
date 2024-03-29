@@ -155,18 +155,23 @@ Deploy to Anvil, first open another terminal, give it your custom `MNEMONIC` as
 an environment variable, and run anvil in it:
 
 ````sh
-# This is a random generated hash with 0 test eth, and the Ethereum test
-# network `ethereum-sepolia`
-# [faucet](https://www.alchemy.com/faucets/ethereum-sepolia) keeps saying:
-# "complete captcha", without showing the captcha (Add block was disabled).
+# This is a random generated BIP39 mnemonic seed with 0 test eth in it (on any
+# network). To receive test eth you can ask Alchemy, which uses the test network:
+# `ethereum-sepolia`. If you can get the faucet to give you test-ETH, you can use
+# your own MNEMONIC (see [BIP39 mnemonic](https://iancoleman.io/bip39/).).
+# [Their faucet](https://www.alchemy.com/faucets/ethereum-sepolia) keeps
+# saying: "complete captcha", without showing the captcha (Add block was
+# disabled).
 ```sh
 export MNEMONIC="pepper habit setup conduct material wagon\
 captain liquid ill confirm cube easy iron tackle timber"
 ````
 
-If you can get the faucet to give you test-ETH, you can use your own MNEMONIC
-(see [BIP39 mnemonic](https://iancoleman.io/bip39/).). Luckily foundry provides
-a standard test wallet with 1000 ETH in it, which can be used with:
+I can not get test eth from the faucet, because captcha/alchemy does not like
+privacy. (Test networks do not like privacy by design because otherwise the
+test network can get (more easily) spammed).
+Luckily foundry provides a standard test wallet with 1000 ETH in it, which can
+be used with:
 
 ```sh
 export MNEMONIC="test test test test test test test test test test test junk"
